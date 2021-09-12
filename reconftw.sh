@@ -1735,7 +1735,7 @@ function sendToNotify {
 		printf "\n${yellow} no file provided to send ${reset}\n"
 	else
 		if [[ -z "$NOTIFY_CONFIG" ]]; then
-			NOTIFY_CONFIG=~/.config/notify/notify.conf
+			NOTIFY_CONFIG=~/.config/notify/provider-config.yaml
 		fi
 		if grep -q '^ telegram\|^telegram' $NOTIFY_CONFIG ; then
 			notification "Sending ${domain} data over Telegram" info
