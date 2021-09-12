@@ -1740,7 +1740,7 @@ function sendToNotify {
 		if grep -q '^ telegram\|^telegram' $NOTIFY_CONFIG ; then
 			notification "Sending ${domain} data over Telegram" info
 			telegram_chat_id=$(cat ${NOTIFY_CONFIG} | grep '^ telegram_chat_id\|^telegram_chat_id' | xargs | cut -d' ' -f2)
-			telegram_key=$(cat ${NOTIFY_CONFIG} | grep '^ telegram_apikey\|^telegram_apikey' | xargs | cut -d' ' -f2 )
+			telegram_key=$(cat ${NOTIFY_CONFIG} | grep '^ telegram_api_key\|^telegram_api_key' | xargs | cut -d' ' -f2 )
 			curl -F document=@${1} "https://api.telegram.org/bot${telegram_key}/sendDocument?chat_id=${telegram_chat_id}" &>/dev/null
 		fi
 		if grep -q '^ discord\|^discord' $NOTIFY_CONFIG ; then
